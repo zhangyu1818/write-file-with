@@ -1,0 +1,17 @@
+name: test
+on: [push]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+      - run: pwd
+      - run: touch test.js | echo "module.exports=(v)=>v; " >> test.js
+      - name: write
+        id: write
+        uses: ./
+        with:
+          file: "package.json"
+          script: "test.js"
+      - run: echo "${{ steps.write.outputs.result }}"

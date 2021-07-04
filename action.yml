@@ -1,0 +1,13 @@
+name: Write file with
+author: zhangyu1818
+description: "Write file with javascript"
+inputs:
+  file:
+    description: "which file need write"
+    required: true
+  script:
+    description: "write with javascript"
+    required: true
+runs:
+  using: node12
+  main: "dist/index.js"
